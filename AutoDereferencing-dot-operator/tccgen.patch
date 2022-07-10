@@ -1,0 +1,20 @@
+--- tcc-0.9.27/tccgen.c	2017-12-17 09:27:05.000000000 +0100
++++ tcc-0.9.27-patched/tccgen.c	2022-07-09 18:52:13.139921100 +0200
+@@ -5117,12 +5117,16 @@
+             /* field */ 
+             if (tok == TOK_ARROW) 
+                 indir();
++            /* Auto dereferencing dot (.) operator patch */
++	    else if (tok == '.' && ((vtop->type.t & VT_BTYPE)) == VT_PTR) {
++    		indir();
++	    }
+             qualifiers = vtop->type.t & (VT_CONSTANT | VT_VOLATILE);
+             test_lvalue();
+             gaddrof();
+             /* expect pointer on structure */
+             if ((vtop->type.t & VT_BTYPE) != VT_STRUCT)
+-                expect("struct or union");
++                expect("struct, union or a pointer to them");
+             if (tok == TOK_CDOUBLE)
+                 expect("field name");
+             next();
