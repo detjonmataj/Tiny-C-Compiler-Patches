@@ -33,12 +33,12 @@ int main(void)
     ///! Defined struct foo with Type Foo
     Foo foo;
 
-    ///! Calling the function sum with the address of foo as argument
+    ///! Calling the function sum with the address of foo as an argument
     ///! This function will add the values of f1 and f2 and print the sum
     ///! It will access struct fields with member access operator '->' in the regular way (not Auto Dereferencing with dot operator)
     sum(&foo);
 
-    ///! Calling the function _sum with the address of foo as argument
+    ///! Calling the function _sum with the address of foo as an argument
     ///! This function will add the values of f1 and f2 and print the sum
     ///! It will access struct fields with member access operator '.' using Auto Dereferencing with dot operator Patch
     ///! This feature is available only for the Tiny C Compiler with my patch
