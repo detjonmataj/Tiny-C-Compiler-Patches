@@ -13,7 +13,7 @@ To access members of a structure we use the dot (.) operator and arrow (->) oper
 
 It was very difficult for me to understand how to access the members of the struct. Also, pointers were confusing to me at that time. I always forgot how to use them and access the members of the struct they are pointing to.
 
-I wasn't the only one who faced these problems. It was a problem for many other students as well. When I was mentoring First-Year Students, I came across the question "Why can't I access struct members only using the dot (.) operator?". I also read some posts and comments on the internet that mentioned the same thing which gave me an idea. This feature is also implemented in languages like Rust and Go.
+I wasn't the only one who faced these problems. It was a problem for many other students as well. When I was mentoring First-Year Students, I came across the question "Why can't I access struct members only using the dot (.) operator?". I also read some posts and comments on the internet that mentioned the same thing which gave me this idea. Let's say this feature is already in `Golang` and `Rust`, so I wanted to make it available in `C`. These two languages use the dot (.) operator to access the members of structures and there is no arrow (->) operator. That's a whole different story so I'm not going to discuss it here.
 
 More about this will be discussed below in this section.
 
@@ -58,7 +58,7 @@ Student *student = (Student *)malloc(sizeof(Student));
 (*student).age = 20;
 ```
 
-In the above example, I have declared a pointer to the struct named student and then updated the members of the struct. To access the members of the struct, I have used the dot operator (.), but first, I dereferenced the pointer to the struct and put it inside the parentheses because of operator precedence. The precedence of the dot operator is higher than the precedence of the \* (Indirection, dereference) operator.
+In the above example, I have declared a pointer to the struct named student and then updated the members of the struct. I used the dot (.) operator to access its members, but first, I dereferenced the pointer and surrounded it with parentheses, because of operator precedence. The precedence of the dot operator is higher than the precedence of the \* (Indirection, dereference) operator.
 
 ***Second Method:***
 
